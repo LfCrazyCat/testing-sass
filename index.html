@@ -1,26 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <title>npm, sass og bootstrap prosjekt</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet" media="all">
+  <link href="style.css" rel="stylesheet" media="all">
+ <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+
+  <!-- Henviser til Google Fonts over -->
+
+  <title>Ressursarkiv</title>
 </head>
+
 <body>
-    <div class="container text-center">
-        <div class="row">
-          <div class="col">
-            Column
-          </div>
-          <div class="col">
-            Column
-          </div>
-          <div class="col">
-            Column
-          </div>
-        </div>
-      </div>
+  <header> </header> <!-- Hadde først nav i header men flyttet det til main som gjør at disse to kan "sitte sammen, slik de skal "-->
+  <main>
+    <nav>
+       <ul class="nav">
+          <li class="nav-item">
+            <a href="javascript:void(0)" onclick="showResource('HTML')">HTML</a>
+          </li>
+
+          <li class="nav-item">
+          <a href="javascript:void(0)" onclick="showResource('CSS')">CSS</a>
+        </li>
+
+         <li class="nav-item">
+          <a href="javascript:void(0)" onclick="showResource('JavaScript')">JavaScript</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="javascript:void(0)" onclick="showResource('React')">React</a>
+        </li>
+    
+        <li class="nav-item">
+          <a href="javascript:void(0)" onclick="showResource('Sanity and headless CMS')">Sanity and Headless</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section id="resourceContainer"></section>
+
+  </main>
+
+  <script src="ressurser.js"></script> <!-- For å sikre at HTML-dom-en er lastet inn før scriptet kjøres legges den over ende-tagggen i </body> -->
+
+  <script>
+    //Eventlistener som bruker DOMContentLoaded som kjører når siden er innlastet, kaller så på funskjonen showResource med argumentet HTML for 
+    // å vise HTML kategorien . 
+  
+    document.addEventListener('DOMContentLoaded', () => {
+      showResource('HTML')
+    })
+
+    // Funksjonen med kategorien paramter som kjøres når man navigerer mellom de ulike menyvalg i <nav> 
+      function showResource(category) {
+
+      // Variabel som sparer den kategorien som man velger. Arrayen filterers og matcher mot den valgte kategoriern. 
+      const chosenResource = resources.filter(resource => resource.category === category)
+
+      // Variabelen som henter inn HTML elementet resourceContainer 
+      const resourceContainer = document.getElementById('resourceContainer')
+
+
+      //Variabel som mapper (maps) igjennom chosenResource arrayen som ble skapt overfor. 
+      const resource = chosenResource.map(resource => {
+
+
+        // Variabelen som mapper igjennom resource får å ta ut URL samt title og legger inn dette i HTML-format. 
+        const resourceList = resource.sources.map(source => `<li><a href="${source.url}" target="_blank">${source.title}</a></li>`).join('')
+
+        // Skaper opp HTML med hjelp av template literans, tar med kategori, tekst, samt. html-strengen som finnes i resourceList variabelen.
+        return `
+    <h1>${resource.category}</h1>
+    <p>${resource.text}</p>
+    <ul>${resourceList}</ul>
+    `
+    
+      // Setter sammen all HTML til en streng og avslutter map prosessen. 
+    }).join('')
+
+      // Oppdaterer resourceContainer med all informasjon som er hentet frem og viser på siden.
+      resourceContainer.innerHTML = resource
+    }
+  </script>
 </body>
+
 </html>
+

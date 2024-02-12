@@ -2,6 +2,7 @@
 
 # Dependencies
 /node_modules
+/testing-sass/node_modules
 /.pnp
 .pnp.js
 

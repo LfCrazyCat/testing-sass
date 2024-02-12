@@ -58,7 +58,16 @@
       <App />,
       document.getElementById("root")
     );
+
+    function getFilteredList() {
+    if (!selectedCategory) {
+        return categoryList;
+    }
+    return categoryList.filter((item) => item.category === selectedCategory);
+};
   </script>
+
+
 <!-- 
   <script>
     //Eventlistener som bruker DOMContentLoaded som kjører når siden er innlastet, kaller så på funskjonen showResource med argumentet HTML for 

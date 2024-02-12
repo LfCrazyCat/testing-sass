@@ -47,6 +47,19 @@
 
   <script src="ressurser.js"></script> <!-- For å sikre at HTML-dom-en er lastet inn før scriptet kjøres legges den over ende-tagggen i </body> -->
 
+  <div id="root"></div>
+  <script src="ressurser.js"></script>
+  <script src="path/to/react-dom.js"></script>
+  <script src="path/to/babel.js"></script>
+  <script src="text/label" src="App.js"></script>
+
+  <script type="text/javascript">
+    ReactDOM.render(
+      <App />,
+      document.getElementById("root")
+    );
+  </script>
+<!-- 
   <script>
     //Eventlistener som bruker DOMContentLoaded som kjører når siden er innlastet, kaller så på funskjonen showResource med argumentet HTML for 
     // å vise HTML kategorien . 
@@ -85,7 +98,7 @@
       // Oppdaterer resourceContainer med all informasjon som er hentet frem og viser på siden.
       resourceContainer.innerHTML = resource
     }
-  </script>
+  </script> -->
 </body>
 
 </html>

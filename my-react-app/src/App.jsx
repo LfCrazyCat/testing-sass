@@ -4,6 +4,15 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
+  return (
+    <h1>Ressursarkiv</h1>
+  );
+}
+
+export default App;
+/* 
+function App() {
+  
   const [count, setCount] = useState(0)
 
   return (
@@ -26,10 +35,10 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        Click on the Vite and React logos to learn more eller ikke gjør det 
       </p>
     </>
   )
 }
 
-export default App
+export default App */

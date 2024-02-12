@@ -18,3 +18,12 @@ const Resources = ({ category, data }) => {
     </div>
   );
 };
+
+function getFilteredList(selectedCategory, categoryList) {
+  if (!selectedCategory) {
+    return categoryList;
+  }
+  return categoryList.filter((item) => item.category === selectedCategory);
+}
+
+export { Resources, getFilteredList };

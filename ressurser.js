@@ -76,6 +76,8 @@ const resources = [
   }
 ]
 
+export default ressurser;
+
 function getFilteredList() {
   if (!selectedCategory) {
       return categoryList;

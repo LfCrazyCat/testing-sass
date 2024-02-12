@@ -7,20 +7,20 @@ const App = () => {
   return (
     <Router>
       <switch>
-        <Route path="/html">
-          <Resources category="html" data={ressourcesData.html} />
+      <Route path="/html">
+          <Resources category="html" data={resources} />
         </Route>
         <Route path="/css">
-          <Resources category="css" data={ressourcesData.css} />
+          <Resources category="css" data={resources} />
         </Route>
         <Route path="/javascript">
-          <Resources category="javascript" data={ressourcesData.javascript} />
+          <Resources category="javascript" data={resources} />
         </Route>
         <Route path="/react">
-          <Resources category="react" data={ressourcesData.react} />
-          </Route>        
-          <Route path="/sanity">
-            <Resources category="sanity" data={ressourcesData.sanity} />
+          <Resources category="react" data={resources} />
+        </Route>
+        <Route path="/headless-cms">
+          <Resources category="headless-cms" data={resources} />
           </Route>
       </switch>
     </Router>
